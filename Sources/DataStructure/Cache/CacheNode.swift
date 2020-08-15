@@ -8,10 +8,10 @@
 import Foundation
 
 class CacheNode<K, T>{
-    private var __key: K
-    private var __data: T
-    private var __previous: CacheNode? = nil
-    private var __next: CacheNode? = nil
+    private var key: K
+    private var data: T
+    private var previous: CacheNode? = nil
+    private var next: CacheNode? = nil
 
     /**
     A constructor of CacheNode class which takes a key and a data as inputs and initializes private fields with
@@ -22,10 +22,10 @@ class CacheNode<K, T>{
         - data : T type input values represented by keys.
     */
     init(key: K, data: T){
-        self.__key = key
-        self.__data = data
-        self.__previous = nil
-        self.__next = nil
+        self.key = key
+        self.data = data
+        self.previous = nil
+        self.next = nil
     }
 
     /**
@@ -34,7 +34,7 @@ class CacheNode<K, T>{
     - Returns: data value.
     */
     func getData() -> T{
-        return self.__data
+        return self.data
     }
 
     /**
@@ -43,7 +43,7 @@ class CacheNode<K, T>{
     - Returns: key value.
     */
     func getKey() -> K{
-        return self.__key
+        return self.key
     }
 
     /**
@@ -52,7 +52,7 @@ class CacheNode<K, T>{
     - Returns: previous CacheNode.
     */
     func getPrevious() -> CacheNode?{
-        return self.__previous
+        return self.previous
     }
 
     /**
@@ -61,7 +61,7 @@ class CacheNode<K, T>{
     - Returns: next CacheNode.
     */
     func getNext() -> CacheNode?{
-        return self.__next
+        return self.next
     }
 
     /**
@@ -70,7 +70,7 @@ class CacheNode<K, T>{
     - Parameter previous : previous CacheNode.
     */
     func setPrevious(previous: CacheNode?){
-        self.__previous = previous
+        self.previous = previous
     }
 
     /**
@@ -79,7 +79,7 @@ class CacheNode<K, T>{
     - Parameter: next : next CacheNode.
     */
     func setNext(next: CacheNode){
-        self.__next = next
+        self.next = next
     }
 
 }

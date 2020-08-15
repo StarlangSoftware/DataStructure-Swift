@@ -9,9 +9,9 @@ import Foundation
 
 class LRUCache<K: Hashable, T>{
     
-    private var __cacheSize: Int
-    private var __map: [K : CacheNode<K, T>]
-    private var __cache: CacheLinkedList<K, T>
+    private var cacheSize: Int
+    private var map: [K : CacheNode<K, T>]
+    private var cache: CacheLinkedList<K, T>
 
     /**
     A constructor of LRUCache class which takes cacheSize as input. It creates new CacheLinkedList and
@@ -20,9 +20,9 @@ class LRUCache<K: Hashable, T>{
     - Parameter cacheSize : Integer input funcining cache size.
     */
     init(cacheSize: Int){
-        self.__cacheSize = cacheSize
-        self.__cache = CacheLinkedList<K, T>()
-        self.__map = [:]
+        self.cacheSize = cacheSize
+        self.cache = CacheLinkedList<K, T>()
+        self.map = [:]
     }
 
     /**
@@ -34,7 +34,7 @@ class LRUCache<K: Hashable, T>{
     - Returns: true if the HashMap has the given key, false otherwise.
     */
     func contains(key: K) -> Bool{
-        return self.__map[key] != nil
+        return self.map[key] != nil
     }
 
     /**
@@ -48,10 +48,10 @@ class LRUCache<K: Hashable, T>{
     - Returns: data value if the dictionary has the given key, None otherwise.
     */
     func get(key: K) -> T?{
-        if self.__map[key] != nil{
-            let cacheNode : CacheNode<K, T> = self.__map[key]!
-            self.__cache.removeGiven(cacheNode: cacheNode)
-            self.__cache.add(cacheNode: cacheNode)
+        if self.map[key] != nil{
+            let cacheNode : CacheNode<K, T> = self.map[key]!
+            self.cache.removeGiven(cacheNode: cacheNode)
+            self.cache.add(cacheNode: cacheNode)
             return cacheNode.getData()
         } else{
             return nil
@@ -69,13 +69,13 @@ class LRUCache<K: Hashable, T>{
         - data : object type input
     */
     func add(key: K, data: T){
-        if self.__map.count == self.__cacheSize{
-            let removed : CacheNode<K, T> = self.__cache.remove()
-            self.__map[removed.getKey()] = nil
+        if self.map.count == self.cacheSize{
+            let removed : CacheNode<K, T> = self.cache.remove()
+            self.map[removed.getKey()] = nil
         }
         let cacheNode : CacheNode<K, T> = CacheNode(key: key, data: data)
-        self.__cache.add(cacheNode: cacheNode)
-        self.__map[key] = cacheNode
+        self.cache.add(cacheNode: cacheNode)
+        self.map[key] = cacheNode
     }
 
 }

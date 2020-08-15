@@ -9,12 +9,12 @@ import Foundation
 
 class CacheLinkedList<K, T>{
     
-    private var _head: CacheNode<K, T>?
-    private var _tail: CacheNode<K, T>?
+    private var head: CacheNode<K, T>?
+    private var tail: CacheNode<K, T>?
 
     init(){
-        self._head = nil
-        self._tail = nil
+        self.head = nil
+        self.tail = nil
     }
 
     /**
@@ -28,12 +28,12 @@ class CacheLinkedList<K, T>{
         if previous != nil{
             previous!.setNext(next: next!)
         } else{
-            self._head = self._head!.getNext()
+            self.head = self.head!.getNext()
         }
         if next != nil{
             next!.setPrevious(previous: previous)
         } else{
-            self._tail = self._tail!.getPrevious()
+            self.tail = self.tail!.getPrevious()
         }
     }
 
@@ -45,13 +45,13 @@ class CacheLinkedList<K, T>{
     */
     func add(cacheNode: CacheNode<K, T>){
         cacheNode.setPrevious(previous: nil)
-        if self._head != nil{
-            cacheNode.setNext(next: self._head!)
-            self._head!.setPrevious(previous: cacheNode)
+        if self.head != nil{
+            cacheNode.setNext(next: self.head!)
+            self.head!.setPrevious(previous: cacheNode)
         }
-        self._head = cacheNode
-        if self._tail == nil{
-            self._tail = cacheNode
+        self.head = cacheNode
+        if self.tail == nil{
+            self.tail = cacheNode
         }
     }
 
@@ -62,10 +62,10 @@ class CacheLinkedList<K, T>{
     - Returns: CacheNode type output tail which is removed from doubly list.
     */
     func remove() -> CacheNode<K, T>{
-        let removed : CacheNode<K, T> = self._tail!
-        self._tail = self._tail!.getPrevious()
-        if self._tail == nil{
-            self._head = nil
+        let removed : CacheNode<K, T> = self.tail!
+        self.tail = self.tail!.getPrevious()
+        if self.tail == nil{
+            self.head = nil
         }
         return removed
     }
