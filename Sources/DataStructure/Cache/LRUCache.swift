@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LRUCache<K: Hashable, T>{
+public class LRUCache<K: Hashable, T>{
     
     private var cacheSize: Int
     private var map: [K : CacheNode<K, T>]

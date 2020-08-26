@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CacheLinkedList<K, T>{
+public class CacheLinkedList<K, T>{
     
     private var head: CacheNode<K, T>?
     private var tail: CacheNode<K, T>?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CacheNode<K, T>{
+public class CacheNode<K, T>{
     private var key: K
     private var data: T
     private var previous: CacheNode? = nil

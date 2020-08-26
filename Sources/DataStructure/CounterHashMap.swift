@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CounterHashMap<K : Hashable>{
+public class CounterHashMap<K : Hashable>{
     
     private var data: [K: Int]
     
