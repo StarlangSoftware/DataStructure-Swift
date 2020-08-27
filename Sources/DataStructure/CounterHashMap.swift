@@ -66,6 +66,10 @@ public class CounterHashMap<K : Hashable>{
     public func size() -> Int{
         return data.count
     }
+    
+    public func keys() -> [K]{
+        return Array(data.keys)
+    }
 
     /**
     The sumOfCounts method loops through the values contained in this map and accumulates the counts of this values.
