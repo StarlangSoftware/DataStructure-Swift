@@ -11,7 +11,7 @@ public class CounterHashMap<K : Hashable>{
     
     private var data: [K: Int]
     
-    init(){
+    public init(){
         data = [:]
     }
 

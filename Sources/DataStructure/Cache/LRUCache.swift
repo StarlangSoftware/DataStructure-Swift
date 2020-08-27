@@ -19,7 +19,7 @@ public class LRUCache<K: Hashable, T>{
 
     - Parameter cacheSize : Integer input public funcining cache size.
     */
-    init(cacheSize: Int){
+    public init(cacheSize: Int){
         self.cacheSize = cacheSize
         self.cache = CacheLinkedList<K, T>()
         self.map = [:]
