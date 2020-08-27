@@ -22,7 +22,7 @@ public class CacheLinkedList<K, T>{
 
     - Parameter cacheNode : CacheNode type input to remove.
     */
-    func removeGiven(cacheNode: CacheNode<K, T>){
+    public func removeGiven(cacheNode: CacheNode<K, T>){
         let previous : CacheNode<K, T>? = cacheNode.getPrevious()
         let next : CacheNode<K, T>? = cacheNode.getNext()
         if previous != nil{
@@ -43,7 +43,7 @@ public class CacheLinkedList<K, T>{
 
     - Parameter cacheNode : CacheNode type input to add to the doubly list.
     */
-    func add(cacheNode: CacheNode<K, T>){
+    public func add(cacheNode: CacheNode<K, T>){
         cacheNode.setPrevious(previous: nil)
         if self.head != nil{
             cacheNode.setNext(next: self.head!)
@@ -61,7 +61,7 @@ public class CacheLinkedList<K, T>{
 
     - Returns: CacheNode type output tail which is removed from doubly list.
     */
-    func remove() -> CacheNode<K, T>{
+    public func remove() -> CacheNode<K, T>{
         let removed : CacheNode<K, T> = self.tail!
         self.tail = self.tail!.getPrevious()
         if self.tail == nil{

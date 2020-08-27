@@ -33,7 +33,7 @@ public class CacheNode<K, T>{
 
     - Returns: data value.
     */
-    func getData() -> T{
+    public func getData() -> T{
         return self.data
     }
 
@@ -42,7 +42,7 @@ public class CacheNode<K, T>{
 
     - Returns: key value.
     */
-    func getKey() -> K{
+    public func getKey() -> K{
         return self.key
     }
 
@@ -51,7 +51,7 @@ public class CacheNode<K, T>{
 
     - Returns: previous CacheNode.
     */
-    func getPrevious() -> CacheNode?{
+    public func getPrevious() -> CacheNode?{
         return self.previous
     }
 
@@ -60,7 +60,7 @@ public class CacheNode<K, T>{
 
     - Returns: next CacheNode.
     */
-    func getNext() -> CacheNode?{
+    public func getNext() -> CacheNode?{
         return self.next
     }
 
@@ -69,7 +69,7 @@ public class CacheNode<K, T>{
 
     - Parameter previous : previous CacheNode.
     */
-    func setPrevious(previous: CacheNode?){
+    public func setPrevious(previous: CacheNode?){
         self.previous = previous
     }
 
@@ -78,7 +78,7 @@ public class CacheNode<K, T>{
 
     - Parameter: next : next CacheNode.
     */
-    func setNext(next: CacheNode){
+    public func setNext(next: CacheNode){
         self.next = next
     }
 

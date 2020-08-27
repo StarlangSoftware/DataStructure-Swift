@@ -17,7 +17,7 @@ public class LRUCache<K: Hashable, T>{
     A constructor of LRUCache class which takes cacheSize as input. It creates new CacheLinkedList and
     HashMap.
 
-    - Parameter cacheSize : Integer input funcining cache size.
+    - Parameter cacheSize : Integer input public funcining cache size.
     */
     init(cacheSize: Int){
         self.cacheSize = cacheSize
@@ -33,7 +33,7 @@ public class LRUCache<K: Hashable, T>{
 
     - Returns: true if the HashMap has the given key, false otherwise.
     */
-    func contains(key: K) -> Bool{
+    public func contains(key: K) -> Bool{
         return self.map[key] != nil
     }
 
@@ -47,7 +47,7 @@ public class LRUCache<K: Hashable, T>{
 
     - Returns: data value if the dictionary has the given key, None otherwise.
     */
-    func get(key: K) -> T?{
+    public func get(key: K) -> T?{
         if self.map[key] != nil{
             let cacheNode : CacheNode<K, T> = self.map[key]!
             self.cache.removeGiven(cacheNode: cacheNode)
@@ -68,7 +68,7 @@ public class LRUCache<K: Hashable, T>{
         - key : object type input.
         - data : object type input
     */
-    func add(key: K, data: T){
+    public func add(key: K, data: T){
         if self.map.count == self.cacheSize{
             let removed : CacheNode<K, T> = self.cache.remove()
             self.map[removed.getKey()] = nil

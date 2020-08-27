@@ -22,7 +22,7 @@ public class CounterHashMap<K : Hashable>{
 
      - Parameter key : key to put.
     */
-    func put(key: K){
+    public func put(key: K){
         if data[key] != nil{
             data[key] = data[key]! + 1
         } else{
@@ -39,7 +39,7 @@ public class CounterHashMap<K : Hashable>{
         - key : key to put.
         - N : to increment value.
     */
-    func putNTimes(key: K, N: Int){
+    public func putNTimes(key: K, N: Int){
         if data[key] != nil{
             data[key]! += N
         } else{
@@ -55,7 +55,7 @@ public class CounterHashMap<K : Hashable>{
 
     - Returns: the value corresponding given key, 0 if it is not mapped.
     */
-    func count(key: K) -> Int{
+    public func count(key: K) -> Int{
         if data[key] != nil{
             return data[key]!
         } else {
@@ -63,7 +63,7 @@ public class CounterHashMap<K : Hashable>{
         }
     }
     
-    func size() -> Int{
+    public func size() -> Int{
         return data.count
     }
 
@@ -72,7 +72,7 @@ public class CounterHashMap<K : Hashable>{
 
     - Returns: accumulated counts.
     */
-    func sumOfCounts() -> Int{
+    public func sumOfCounts() -> Int{
         var total : Int = 0
         for key in data.keys{
             total += data[key]!
@@ -91,7 +91,7 @@ public class CounterHashMap<K : Hashable>{
 
     - Returns: object type maxKey if greater than the given threshold, None otherwise.
     */
-    func max(threshold: Double = 0.0) -> K?{
+    public func max(threshold: Double = 0.0) -> K?{
         var maxCount : Int = 0
         var total : Int = 0
         var maxKey : K? = nil
@@ -114,7 +114,7 @@ public class CounterHashMap<K : Hashable>{
 
     - Parameter toBeAdded : CounterHashMap to be added to this counterHashMap.
     */
-    func add(toBeAdded: CounterHashMap){
+    public func add(toBeAdded: CounterHashMap){
         for value in toBeAdded.data.keys{
             self.putNTimes(key: value, N: toBeAdded.data[value]!)
         }
@@ -125,11 +125,11 @@ public class CounterHashMap<K : Hashable>{
     mappings contained in this map and adds each entry to the result list. Then sort this list
     according to their values and returns a list which is a sublist of result with N elements.
 
-    - Parameter N : nteger value for funcining size of the sublist.
+    - Parameter N : nteger value for public funcining size of the sublist.
 
     - Returns: a sublist of N element.
     */
-    func topN(N: Int) -> Array<(item:K, count:Int)>{
+    public func topN(N: Int) -> Array<(item:K, count:Int)>{
         var result : Array<(item:K, count:Int)> = []
         for key in data.keys{
             result.append((key, data[key]!))
