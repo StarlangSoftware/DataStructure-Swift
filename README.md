@@ -40,3 +40,84 @@ Result: The imported project is listed in the Project Explorer view and files ar
 **From IDE**
 
 After being done with the downloading and opening project, select **Build** option from **Product** menu. After compilation process, user can run DataStructure-Swift.
+
+Detailed Description
+============
+
++ [CounterHashMap](#counterhashmap)
++ [LRUCache](#lrucache)
+
+## CounterHashMap
+
+CounterHashMap bir veri tipinin kaç kere geçtiğini hafızada tutmak için kullanılmaktadır.
+
+Bir CounterHashMap yaratmak için
+
+	a = CounterHashMap()
+
+Hafızaya veri eklemek için
+
+	func put(key: K)
+
+Örneğin,
+
+	a.put(key: "ali");
+
+Bu aşamanın ardından "ali" nin sayacı 1 olur.
+
+Hafızaya o veriyi birden fazla kez eklemek için
+
+	func putNTimes(key: K, N: Int)
+
+Örneğin,
+
+	a.putNTimes(key: "veli", N: 5)
+
+Bu aşamanın ardından "ali"'nin sayacı 5 olur.
+
+Hafızada o verinin kaç kere geçtiğini bulmak için
+
+	func count(key: K) -> Int
+
+Örneğin, "veli" nin kaç kere geçtiğini bulmak için
+
+	kacKere = a.count(key: "veli")
+
+Bu aşamanın ardından kacKere değişkeninin değeri 5 olur.
+
+Hafızada hangi verinin en çok geçtiğini bulmak için
+
+	func max(threshold: Double = 0.0) -> K?
+
+Örneğin,
+
+	kelime = a.max()
+
+Bu aşamanın ardından kelime "veli" olur.
+
+## LRUCache
+
+LRUCache veri cachelemek için kullanılan bir veri yapısıdır. LRUCache en yakın zamanda 
+kullanılan verileri öncelikli olarak hafızada tutar. Bir LRUCache yaratmak için
+
+	init(cacheSize: Int)
+
+kullanılır. cacheSize burada cachelenecek verinin büyüklüğünün limitini göstermektedir.
+
+Cache'e bir veri eklemek için
+
+	func add(key: K, data: T)
+
+kullanılır. data burada eklenecek veriyi, key anahtar göstergeyi göstermektedir.
+
+Cache'de bir veri var mı diye kontrol etmek için
+
+	func contains(key: K) -> Bool
+
+kullanılır.
+
+Cache'deki veriyi anahtarına göre getirmek için
+
+	func get(key: K) -> T?
+
+kullanılır.
