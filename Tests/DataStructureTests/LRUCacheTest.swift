@@ -51,9 +51,9 @@ final class LRUCacheTest: XCTestCase {
         for i in 0...size{
             cache.add(key: i, data: i)
         }
-        for i in 0...100{
+        for _ in 0...100{
             let time1 = Int64(Date().timeIntervalSince1970.magnitude * 1000)
-            for j in 0...size{
+            for _ in 0...size{
                 let data = Int.random(in: size..<2 * size)
                 cache.add(key: data, data: data)
             }
